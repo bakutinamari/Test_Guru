@@ -1,10 +1,7 @@
 class User < ApplicationRecord
-	def all_tests(test)
-		test.title
-	end
-
+	
 	def tests_by_level(levels)
-       all_tests self if levels == test.level
-       title.each{|title| puts title}
+       self.joins("LEFT JOIN user_tests ON tests.id = test_id").where(tests.level = ?,user_tests.user_id = ?, levels, users)
 	end
+       
 end

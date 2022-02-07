@@ -19,11 +19,11 @@ tests = Test.create([{title: 'Test 1', level: 2, category: categories.first},
                      {title: 'Test 4', level: 3, category: categories.last}
                      {title: 'Test 5', level: 1, category: categories.first}
                    ])
-answers = Answer.create([{correct: true, question: questions.first == 'Австралия'},
-                         {correct: true, question: questions[1] == 'Шар'},
-                         {correct: true, question: questions[2] == 'Обама'},
-                         {correct: true, question: questions[3] == 988},
-                         {correct: true, question: questions.last == 'a**2 + b**2 = c**2'}
+answers = Answer.create([{correct: true, question: questions.first},
+                         {correct: true, question: questions[1]},
+                         {correct: true, question: questions[2]},
+                         {correct: true, question: questions[3]},
+                         {correct: true, question: questions.last}
                    ])
 questions = Question.create([{body: 'Назовите самый маленький континент',test: tests.first},
                              {body: 'Какой формы земля?',test: tests[1]},
