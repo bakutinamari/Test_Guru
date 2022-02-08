@@ -27,7 +27,7 @@ questions = Question.create([{body: 'Назовите самый маленьк�
                          ])
 
 answers = Answer.create([{correct: true, question: questions.first = "Австралия"},
-                         {correct: true, question: guestions[1] = "Шар"},
+                         {correct: true, question: questions[1] = "Шар"},
                          {correct: true, question: questions[2] = "Обама"},
                          {correct: true, question: questions[3] = "988"},
                          {correct: true, question: questions.last = "c**2 = a**2 + b**2"}
