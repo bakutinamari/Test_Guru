@@ -7,11 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 users = User.create([{name: 'Alex', age: 23},
 	                 {name: 'Dmitry', age: 45}, 
-	                 {name: 'Pavel', age: 15}])
+	                 {name: 'Pavel', age: 15}
+                   ])
 
 categories = Category.create([{title: 'Geografy'},
                               {title: 'History'},
-                              {title: 'Matematika'}])
+                              {title: 'Matematika'}
+                            ])
 
 tests = Test.create([{title: 'Test 1', level: 2, category: categories.first},
                      {title: 'Test 2', level: 3, category: categories.last}
@@ -24,14 +26,14 @@ questions = Question.create([{body: 'Назовите самый маленьк�
                              {body: 'Маск,Перельман,Обама-кто из них является нобелевским лауреатом?',test: tests[2]},
                              {body: 'В каком году было Крещение Руси?',test: tests[3]},
                              {body: 'Какая формула теоремы Пифагора?', test: tests.last}
-                         ])
+                            ])
 
-answers = Answer.create([{correct: true, question: questions.first = "Австралия"},
-                         {correct: true, question: questions[1] = "Шар"},
-                         {correct: true, question: questions[2] = "Обама"},
-                         {correct: true, question: questions[3] = "988"},
-                         {correct: true, question: questions.last = "c**2 = a**2 + b**2"}
-                        ])_
+Answer.create([{ correct: true, question: questions.first },
+               { correct: true, question: questions[1] },
+               { correct: true, question: questions[2] },
+               { correct: true, question: questions[3] },
+               { correct: true, question: questions.last }
+              ])
 
 
 
