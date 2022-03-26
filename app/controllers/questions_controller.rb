@@ -7,25 +7,28 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all 
 
-    render :'All questions'
+    render plain:'All questions'
   end
 
   def new
     @question = @test.questions.new
+  end
 
   def show; end
 
   def destroy
     @question.destroy
+    redirect_to '/'
   end
 
 
   def create
     @question = @test.questions.build(question_params)
-      if @question.save
-        redirect_to questions
-      else
-    render :new
+    if @question.save
+      redirect_to questions
+    else
+      render :new
+    end
   end
 
   private
