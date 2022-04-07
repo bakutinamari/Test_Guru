@@ -1,14 +1,8 @@
 class QuestionsController < ApplicationController
   before_action: find_test, only: %i[new create]
-  before_action: find_question, only %i[destroy show]
+  before_action: find_question, only: %i[destroy show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    @questions = Question.all 
-
-    render plain:'All questions'
-  end
 
   def new
     @question = @test.questions.new
@@ -18,7 +12,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to '/'
+    redirect_to test_path(@question.test)
   end
 
 
@@ -42,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_test
-    @test = Test.find(params[:id])
+    @test = Test.find(params[:test_id])
   end
 
   def find_question
