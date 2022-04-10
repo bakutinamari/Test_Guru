@@ -15,12 +15,11 @@ class QuestionsController < ApplicationController
     redirect_to test_path(@question.test)
   end
 
-
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to questions
-    else
+      redirect_to question_path(@question)
+    else 
       render :new
     end
   end
@@ -29,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:body)
-  end 
+  end
 
   def rescue_with_question_not_found
     render plain: 'Not found'

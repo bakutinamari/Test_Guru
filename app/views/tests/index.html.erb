@@ -1,24 +1,14 @@
 <h1>Tests</h1>
 
+<%= render 'shared/errors', resource :@test %>
+
 <table>
   <tr>
-	<th>title</th>
-	<th>level</th>
+    <th>title</th>
+    <th>level</th>
   </tr>
 
-  <% @questions.each do |quest| %>
-    <tr>
-      <td><%= quest.title %></td>
-      <td><%= quest.level %></td>
-    </tr>
-  <%= end %>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>
-
-<div>
-  <h2><%= pluralize(@test.questions.count, 'count')%>detected:</h2>
-    <ul> 
-      <% @test.questions.full_messages.each do |message| %>
-        <li><%= message %></li>
-          <% end %>
-    </ul>
-</div>
