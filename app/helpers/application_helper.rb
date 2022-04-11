@@ -3,7 +3,7 @@ module ApplicationHelper
     Date.current.year
   end
 
-  def github_url
-    link_to 'https://github.com/bakutinamari'
+  def github_url(author, repo)
+    link_to 'git_hub',"https://github.com/#{author}/#{repo}",target: '_blank'
   end
 end

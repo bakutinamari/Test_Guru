@@ -20,7 +20,13 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def destroy
+    @test.destroy!
+
+    redirect_to test_path
   end
 end
 

@@ -1,0 +1,21 @@
+<%= form_with model: @tests do |form| %>
+  <%= render 'shared/errors', rewsource: @tests %>
+  <p>
+  	<%= form.label :title %>
+  	<%= form.text_field :title %>
+  </p>
+
+  <p>
+  	<%= form.label :level %>
+  	<%= form.numder_field :level%>
+  </p>
+
+  <p>
+  	<%= form.label :category_id %>
+  	<%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+
+  <p>
+  	<%= form.submit %>
+  </p>
+<% end %>
