@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def tests_by_level(levels)
     tests.where(level: levels)
   end
+
+  def test_passage(test)
+    test_passages.find_by(test_id: test.id)
+  end
 end
