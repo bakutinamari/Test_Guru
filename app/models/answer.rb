@@ -12,3 +12,5 @@ class Answer < ApplicationRecord
     errors.add(:answers_amount, "Answers limit reached") if question.answers.count >= 4
   end
 end
+
+

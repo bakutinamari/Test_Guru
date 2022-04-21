@@ -7,3 +7,5 @@ module ApplicationHelper
     link_to 'git_hub',"https://github.com/#{author}/#{repo}",target: '_blank'
   end
 end
+
+
