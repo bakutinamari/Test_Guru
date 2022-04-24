@@ -18,7 +18,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    test.questions.index(current_question) + 1
+    test.questions.order(:id).where('id < ?',current_question.id).size + 1
   end
 
   def right_answers_percent
@@ -39,8 +39,8 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
-  def right_answer(answer_ids)
-    right_answers.ids.sort = answer_ids.map(&:to_i).sort
+  def right_answer?(answer_ids)
+    right_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def right_answers
@@ -51,5 +51,3 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id>?',current_question.nil? ? 0 :current_question.id).first
   end
 end
-
-

@@ -14,5 +14,3 @@ class User < ApplicationRecord
     test_passages.find_by(test_id: test.id)
   end
 end
-
-

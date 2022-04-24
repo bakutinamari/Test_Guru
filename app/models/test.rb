@@ -22,5 +22,3 @@ class Test < ApplicationRecord
       .pluck(:title) 
   end
 end
-
-

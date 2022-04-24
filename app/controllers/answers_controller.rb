@@ -11,10 +11,10 @@ class AnswersController < ApplicationController
   def edit; end
 
   def create
-  	@answer = @question.answers.new(answer_params)
+  	@answer = Answers.new(answer_params)
 
   	if @answer.save
-  	  redirect_to answer_path(@answer)
+  	  redirect_to @answer
   	else
   	  render :new
   	end
@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
   def destroy
   	@answer.destroy
 
-  	redirect_to question_path(@answer.question)
+  	redirect_to @answer.question
   end
 
   private
@@ -48,5 +48,3 @@ class AnswersController < ApplicationController
   	params.require(:answer).permit(:body, :correct)
   end
 end
-
-
