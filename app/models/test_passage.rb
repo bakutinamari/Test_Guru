@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question, on: %i[create update]
 
   def accept!(answer_ids)
-    self.correct_answers += 1 if right_answer?(answer_ids)
+    self.correct_question += 1 if right_answer?(answer_ids)
 
     save!
   end
@@ -22,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def right_answers_percent
-    (correct_answers.to_f/number_of_questions*100.00).to_i
+    (correct_answers.to_f / number_of_questions * 100.00).to_i
   end
 
   def completed?
@@ -41,6 +41,7 @@ class TestPassage < ApplicationRecord
 
   def right_answer?(answer_ids)
     right_answers.ids.sort == answer_ids.map(&:to_i).sort
+    false if answer_ids.blank?
   end
 
   def right_answers
