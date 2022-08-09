@@ -2,9 +2,9 @@
 	<h5 class="mt-4"><%= "header",title: @test_passage.test.title %></h5>
 
 	<% if @test_passage.passed_successfully? %>
-      <p><%= "Success" %></p>
+      <p>Your score <span class="success"><%= @test.passage.right_answers_percent %></span>Test passed</p>
 	<% else %> 
-      <p><%= "Failure" %></p>
+      <p>Your score <span class="fail"><%= @test.passage.right_answers_percent %></span>Try again</p>
 	<% end %>
 	<p>
 		<%= link_to "back",tests_path %>
