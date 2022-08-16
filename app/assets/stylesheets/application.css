@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= reguire test_passages
  */
-@import 'test_passage'
+

@@ -1,14 +1,19 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show start]
-  before_action :set_user, only: %i[user]
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
+
   def show;end
+  
+  def index 
+    @tests = Test.all
+  end
 
   def new
     @test = Test.new
   end
 
   def create
-    @test = Test.find(test_params)
+    @test = Test.new(test_params)
 
     if @test.save
       redirect_to :@test
@@ -18,7 +23,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @test = Test.find(params[:id])
+    
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end

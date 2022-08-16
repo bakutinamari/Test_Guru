@@ -1,5 +1,5 @@
 <%= form_with model: @tests do |form| %>
-  <%= render 'shared/errors', resource: @tests %>
+  
   <p>
   	<%= form.label :title %>
   	<%= form.text_field :title %>
@@ -7,14 +7,15 @@
 
   <p>
   	<%= form.label :level %>
-  	<%= ford.number_field :level %>
+  	<%= form.number_field :level %>
   </p>
   
   <p>
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :title, promp: true %>
   </p>
-  <p><%=button to 'Start', start_test_path(test) %></p>
+  <p><%= button_to 'Start', start_test_path(test) %></p>
+  
 
   <p>
   	<%= form.submit %>
