@@ -2,7 +2,7 @@
 
 <b>
   <%= @test_passage.current_question.body %>
-  <%= @test_passage.current_question.number %> 
+  <%= @test_passage.current_question_number %>
   <%= @test_passage.test.questions.count %>
 </b>
 
@@ -14,7 +14,7 @@
   	<%= b.label %>
   </p>
 
-  <% end 
+  <% end %>
 
   <p><%= form.submit 'Next' %></p>
   

@@ -4,6 +4,6 @@
   <%= link_to 'edit', edit_answer_path(answer) %>
   <%= link_to 'delete',
                answer_path(answer),
-               method: :delete,
-               data: { confirm: 'Are you shure?'} %>
+               data: {method: :delete,
+                 confirm: 'Are you shure?'} %>
 </li>

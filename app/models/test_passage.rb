@@ -3,13 +3,12 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question',optional: true
 
-  SUCCESS_RATE = 85
+  SUCCESS_RATE = 85 
 
   before_validation :before_validation_set_current_question, on: %i[create update]
 
   def accept!(answer_ids)
     self.correct_question += 1 if right_answer?(answer_ids)
-
     save!
   end
 
@@ -27,10 +26,6 @@ class TestPassage < ApplicationRecord
 
   def completed?
     current_question.nil?
-  end
-
-  def passed_successfully?
-    right_answers_percent >= SUCCESS_RATE
   end
 
   private

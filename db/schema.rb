@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_205622) do
+ActiveRecord::Schema.define(version: 2022_08_23_204051) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false, null: false
     t.integer "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -35,10 +36,10 @@ ActiveRecord::Schema.define(version: 2022_04_20_205622) do
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
-    t.integer "current_question_id", null: false
-    t.integer "correct_questions"
+    t.integer "user_id"
+    t.integer "test_id"
+    t.integer "current_question_id"
+    t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_04_20_205622) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "test_passages", "current_questions"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
