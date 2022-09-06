@@ -35,7 +35,7 @@ class TestPassage < ApplicationRecord
 
 
   def right_answers_percent
-    (right_answers.to_f/ number_of_questions * 100.00).to_i
+    (correct_questions.to_f/ number_of_questions * 100.00).to_i
   end
 
   def completed?
