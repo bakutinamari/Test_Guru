@@ -4,6 +4,7 @@
   <%= link_to 'edit', edit_answer_path(answer) %>
   <%= link_to 'delete',
                answer_path(answer),
-               data: {method: :delete,
-                 confirm: 'Are you shure?'} %>
+                  data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure? "} %>
 </li>

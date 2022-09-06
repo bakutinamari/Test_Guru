@@ -1,9 +1,9 @@
-mark.success {
+.success {
 	color: green;
 	background: none;
 }
 
-mark.fail {
+.fail {
 	color: red;
 	background: none;
 }

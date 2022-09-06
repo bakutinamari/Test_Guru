@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show  start edit update destroy]
-  before_action :set_user, only: %i[user]
+  before_action :set_user, only: :start
   def show;end
 
   def new
