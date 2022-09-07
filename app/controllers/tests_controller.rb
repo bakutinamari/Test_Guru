@@ -1,29 +1,30 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show  start edit update destroy]
-  before_action :set_user, only: :start
-  def show;end
+  before_action :set_test, only: %i[show start edit update destroy]
+
+  def show; end
 
   def new
     @test = Test.new
   end
 
-  def index 
+  def index
     @tests = Test.all
   end
 
-  def edit 
-  end 
+  def edit; end
 
-  def update 
+  def update
     if @test.update(test_params)
-      redirect_to @test 
-    else 
-      render :edit 
+      redirect_to @test
+    else
+      render :edit
     end
   end
 
   def create
-    @test = Test.create(test_params)
+    @test = Test.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -33,6 +34,8 @@ class TestsController < ApplicationController
   end
 
   def start
+    @user = User.first
+
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -51,9 +54,5 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = User.first
   end
 end

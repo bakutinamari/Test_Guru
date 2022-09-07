@@ -4,16 +4,13 @@
 	<div>
 	  <% if @test_passage.passed_successfully? %>
 	    <p class='success'><%= @test_passage.right_answers_percent %></p><br>
-	    Test passet!!
+	      Test passet!!
 	  <% else %>
 	    <p class='fail'><%= @test_passage.right_answers_percent %></p><br>
-	    Try again
+	      Try again
 	  <% end %>
 
 	  <p>
 	  	<%= link_to "back", tests_path %>
 	  </p>
 	</div>
-
-
-	

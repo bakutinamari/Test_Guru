@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
@@ -9,6 +11,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_answer_amount
-    errors.add(:answers_amount, "Answers limit reached") if question.answers.count >= 4
+    errors.add(:answers_amount, 'Answers limit reached') if question.answers.count >= 4
   end
 end
