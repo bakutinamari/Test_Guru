@@ -1,12 +1,16 @@
-<div class="container"> 
-	<h5 class="mt-4"><%= "header",title: @test_passage.test.title %></h5>
 
-	<% if @test_passage.passed_successfully? %>
-      <p><%= "Success" %></p>
-	<% else %> 
-      <p><%= "Failure" %></p>
-	<% end %>
-	<p>
-		<%= link_to "back",tests_path %>
-	</p>
-</div>
+	<h1>The <%=@test_passage.test.title %> test completed</h1>
+
+	<div>
+	  <% if @test_passage.passed_successfully? %>
+	    <p class='success'><%= @test_passage.right_answers_percent %></p><br>
+	      Test passet!!
+	  <% else %>
+	    <p class='fail'><%= @test_passage.right_answers_percent %></p><br>
+	      Try again
+	  <% end %>
+
+	  <p>
+	  	<%= link_to "back", tests_path %>
+	  </p>
+	</div>
