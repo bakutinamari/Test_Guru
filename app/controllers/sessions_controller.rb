@@ -8,16 +8,22 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      redirect_to sessions_path
     else
-      flash.now[:alert] = 'Are you a Guru? Verify your Email and Password please'
+      set_greeting
       render :new
     end
+  end
 
-    def destroy
-      session.delete(:user_id)
+  def destroy
+    session.delete(:user_id)
 
-      redirect_to root_path, notice: 'We out session'
-    end
+    redirect_to root_path, notice: 'We out session'
+  end
+
+  private
+
+  def set_greeting
+    flash[:notice] = "Welcome, #{current_user.name} Guru"
   end
 end

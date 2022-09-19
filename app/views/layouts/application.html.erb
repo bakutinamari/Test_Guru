@@ -11,14 +11,8 @@
   </head>
 
   <body>
-    <%if logged_in? %>
-      <p class="nav_user">Welcome, <b><%= @current_user.email %></b> Guru</p>
-    <% end %>
-    <%= link_to "TEST GURU",tests_path %><br>
-    <%= link_to "Login", login_path %>
-    <%= link_to "Registr",signup_path %>
-    <%= link_to "Back", root_path %>
+    <%= render 'shared/nav' %>
+    <%= render 'shared/flash' %>
     <%= yield %>
-    
-  </body>
+    </body>
 </html>
