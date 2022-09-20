@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to sessions_path
+      redirect_to start_test_path
     else
-      set_greeting
       render :new
     end
   end
@@ -19,11 +18,5 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
 
     redirect_to root_path, notice: 'We out session'
-  end
-
-  private
-
-  def set_greeting
-    flash[:notice] = "Welcome, #{current_user.name} Guru"
   end
 end
