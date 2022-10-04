@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <%= render 'shared/nav' %>
+    <%= render 'shared/flash' %>
+    <%#= button_to "back", session_path, method: :delete %>
     <%= yield %>
-  </body>
+    </body>
+
 </html>

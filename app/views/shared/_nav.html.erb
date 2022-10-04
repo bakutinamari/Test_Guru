@@ -1,0 +1,10 @@
+<%= link_to "TEST GURU",tests_path %>
+
+<% if logged_in? %> 
+  <%= "Welcome, #{current_user.name} Guru" %>
+  <%= link_to "Back", session_path %>
+<% else %>
+  <%= link_to "Login", login_path %>
+  <%= link_to "Registr",signup_path %>
+<% end %>
+
