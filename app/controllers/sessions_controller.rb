@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to set_cookies || root_path
+      redirect_to cookies[:path] || root_path
     else
-      redirect_to login_path
+      render :new
     end
   end
 
@@ -18,8 +18,5 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
 
     redirect_to root_path, notice: 'We out session'
-  end
-  def set_cookies  
-    cookies[:path] =  "http://localhost:3000/tests/new" 
   end
 end
